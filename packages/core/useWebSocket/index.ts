@@ -275,6 +275,8 @@ export function useWebSocket<Data = any>(
         pongTimeoutWait = setTimeout(() => {
           // auto-reconnect will be trigger with ws.onclose()
           close()
+          // restore state
+          explicitlyClosed = false
         }, pongTimeout)
       },
       interval,
